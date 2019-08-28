@@ -3,10 +3,17 @@
 # Exit if any subcommand fails
 set -e
 
+echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
 pwd
-ls
+ls -alh
+
+ls -alh /
+ls -alh $GITHUB_WORKSPACE
+env
+
 cd $GITHUB_WORKSPACE
-ls
+pwd
+ls -alh
 
 if [ -f "Gemfile" ]; then
   echo "# Bundling..."
