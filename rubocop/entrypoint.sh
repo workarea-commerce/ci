@@ -3,17 +3,11 @@
 # Exit if any subcommand fails
 set -e
 
-echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-pwd
-ls -alh
-
-ls -alh /
-ls -alh $GITHUB_WORKSPACE
-env
-
+# The docs say the workspace will have the checked out repo but that doesn't
+# seem to be the case.
 cd $GITHUB_WORKSPACE
-pwd
-ls -alh
+git clone git@github.com:$GITHUB_REPOSITORY.git .
+git checkout $GITHUB_SHA
 
 if [ -f "Gemfile" ]; then
   echo "# Bundling..."
