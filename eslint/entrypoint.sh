@@ -22,4 +22,4 @@ else
 fi
 
 echo "\n# Running ESLint..."
-sh -c "eslint $glob"
+sh -c "yarn run eslint $glob"
