@@ -2,7 +2,11 @@
 
 # Exit if any subcommand fails
 set -e
+
+pwd
+ls
 cd $GITHUB_WORKSPACE
+ls
 
 if [ -f "Gemfile" ]; then
   echo "# Bundling..."
