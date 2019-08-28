@@ -10,7 +10,7 @@ if [ -f "package.json" ]; then
 fi
 
 # Install ESLint if needed
-if [ ! `which eslint` ]; then
+if ! yarn list | grep "eslint"; then
   echo "\n# Installing ESLint..."
   yarn add --non-interactive --silent --dev eslint --loglevel error
 fi
