@@ -4,10 +4,8 @@
 set -e
 cd $GITHUB_WORKSPACE
 
-if [ -f "package.json" ]; then
-  echo "# Packaging..."
-  yarn install
-fi
+echo "# Installing yarn..."
+yarn install
 
 # Install ESLint if needed
 if ! yarn list | grep "eslint"; then
