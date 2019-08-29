@@ -1,0 +1,6 @@
+name: 'Run bundler-audit'
+description: 'Runs bundler-audit, which provides patch-level verification for bundler.'
+author: 'Ben Crouse'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

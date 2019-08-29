@@ -1,0 +1,10 @@
+name: 'Run stylelint'
+description: 'Runs stylelint, a mighty, modern linter that helps you avoid errors and enforce conventions in your styles.'
+inputs:
+  args:
+    description: 'Arguments to pass to stylelint'
+    default: '.'
+author: 'Ben Crouse'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

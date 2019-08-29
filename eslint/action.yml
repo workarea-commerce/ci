@@ -1,0 +1,10 @@
+name: 'Run ESLint'
+description: 'Runs ESLint, a pluggable linting utility for JavaScript and JSX.'
+inputs:
+  args:
+    description: 'Arguments to pass to ESLint'
+    default: '.'
+author: 'Ben Crouse'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

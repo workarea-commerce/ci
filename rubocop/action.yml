@@ -1,0 +1,10 @@
+name: 'Run Rubocop'
+description: 'Runs Rubocop, a Ruby static code analyzer (a.k.a. linter) and code formatter.'
+inputs:
+  args:
+    description: 'Arguments to pass to Rubocop'
+    default: '.'
+author: 'Ben Crouse'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
