@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -23,6 +24,7 @@ function run() {
             execSync("gem install bundler", { stdio: 'inherit' });
             execSync("bundle install --jobs 4 --retry 3", { stdio: 'inherit' });
             execSync("bundle exec $(bundle exec rake -T | grep services:up | sed 's/\\w*#.*//')", { stdio: 'inherit' });
+            execSync(`timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:9200)" != "200" ]]; do sleep 1; done' || false`, { stdio: 'inherit' });
             execSync(core.getInput('command'), { env: Object.assign(process.env, { CI: true }), stdio: 'inherit' });
         }
         catch (error) {
