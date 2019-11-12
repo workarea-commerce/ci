@@ -4,14 +4,8 @@
 set -e
 cd $GITHUB_WORKSPACE
 
-echo "# Installing yarn..."
-yarn install
-
-# Install stylelint if needed
-if ! yarn list | grep "stylelint"; then
-  echo "\n# Installing stylelint..."
-  yarn add --non-interactive --silent --dev stylelint --loglevel error
-fi
+echo "\n# Installing stylelint..."
+npm install -g stylelint stylelint-scss stylelint-config-recommended-scss
 
 if [ -z "$1" ]; then
   glob="."
@@ -20,4 +14,4 @@ else
 fi
 
 echo "\n# Running stylelint..."
-sh -c "yarn run stylelint $glob"
+sh -c "stylelint $glob"

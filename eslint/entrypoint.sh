@@ -4,14 +4,8 @@
 set -e
 cd $GITHUB_WORKSPACE
 
-echo "# Installing yarn..."
-yarn install
-
-# Install ESLint if needed
-if ! yarn list | grep "eslint"; then
-  echo "\n# Installing ESLint..."
-  yarn add --non-interactive --silent --dev eslint --loglevel error
-fi
+echo "\n# Installing ESLint..."
+npm install -g eslint
 
 if [ -z "$1" ]; then
   glob="."
@@ -20,4 +14,4 @@ else
 fi
 
 echo "\n# Running ESLint..."
-sh -c "yarn run eslint $glob"
+sh -c "eslint $glob"
