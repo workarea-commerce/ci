@@ -10,7 +10,7 @@ yarn install
 # Install stylelint if needed
 if ! yarn list | grep "stylelint"; then
   echo "\n# Installing stylelint..."
-  yarn add --non-interactive --silent --dev stylelint --loglevel error
+  yarn add --non-interactive --silent --dev stylelint stylelint-config-recommended-scss stylelint-scss --loglevel error
 fi
 
 if [ -z "$1" ]; then
