@@ -1,4 +1,4 @@
-FROM ruby:2.6
+FROM ruby:2.4
 
 LABEL "com.github.actions.name"="Run Rubocop"
 LABEL "com.github.actions.description"="Run Rubocop, a Ruby static code analyzer and formatter."
