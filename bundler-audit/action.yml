@@ -4,3 +4,7 @@ author: 'Ben Crouse'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+inputs:
+  ignored:
+    description: CVEs to ignore when running security checks
+    required: false

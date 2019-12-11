@@ -16,4 +16,9 @@ if [ ! `which bundler-audit` ]; then
 fi
 
 echo "\n# Running bundler-audit..."
-sh -c "bundle audit check --update"
+
+if [ -n "$INPUT_IGNORED" ]; then
+  echo "bundle audit check --update --ignore ${INPUT_IGNORED}"
+else
+  echo "bundle audit check --update"
+fi
