@@ -16,4 +16,4 @@ if [ ! `which bundler-audit` ]; then
 fi
 
 echo "\n# Running bundler-audit..."
-sh -c "bundle audit check --update"
+sh -c "bundle audit check --update ${INPUT_ARGS}"
