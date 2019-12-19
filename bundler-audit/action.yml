@@ -4,3 +4,7 @@ author: 'Ben Crouse'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+inputs:
+  args:
+    description: Arguments to pass to the bundler-audit command
+    required: false
