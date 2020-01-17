@@ -1,4 +1,4 @@
-FROM node:12.9.0
+FROM node:alpine
 
 LABEL "com.github.actions.name"="Run stylelint"
 LABEL "com.github.actions.description"="Run stylelint, a mighty, modern linter that helps you avoid errors and enforce conventions in your styles."
